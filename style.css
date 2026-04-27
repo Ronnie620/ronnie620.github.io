@@ -1,0 +1,211 @@
+/* 1. Academic Wiki Setup */
+        body {
+            margin: 0;
+            font-family: Verdana, Arial, sans-serif; /* Standard Wiki font */
+            font-size: 12px;
+            color: #000;
+            display: flex;
+            background-color: #fff;
+        }
+
+        /* 2. Classic Wiki Sidebar */
+        .sidebar {
+            height: 100vh;
+            width: 180px; /* Slimmer sidebar */
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #f5f5f5; /* Light grey background */
+            border-right: 1px solid #cccccc;
+            padding: 15px 10px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .sidebar h3 {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .sidebar a {
+            padding: 4px 5px;
+            text-decoration: none;
+            font-size: 11px;
+            color: #0066cc; /* Classic link blue */
+            display: block;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+            background-color: transparent;
+        }
+
+        /* 3. Main Content Area */
+        .main-content {
+            margin-left: 200px;
+            padding: 20px 40px;
+            width: 100%;
+        }
+
+        /* Wiki Breadcrumbs */
+        .breadcrumbs {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+
+        /* 4. The Icon Grid Layout */
+        /* Updated Icon Card styles to be Anchor Friendly */
+.icon-card {
+    padding: 0; /* Remove padding here, move it to the link */
+    border: 1px solid transparent;
+    transition: background 0.2s;
+}
+
+.icon-card a {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px; /* Padding goes here for a larger click target */
+    text-decoration: none; /* Removes default underline */
+    color: inherit; /* Keeps text color black/grey */
+    width: 100%;
+}
+
+.icon-card:hover {
+    border: 1px solid #ccc;
+    background-color: #f0f7ff; /* Light blue tint on hover */
+}
+
+.icon-card a:hover .icon-name {
+    text-decoration: underline;
+    color: #0066cc; /* Link blue on hover */
+}
+
+        /* Responsive */
+        @media screen and (max-width: 600px) {
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid #ccc; }
+            .main-content { margin-left: 0; padding: 20px; }
+        }
+        kbd {
+  background-color: #eee;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+.centered {
+  display: flex;
+  align-items: center;
+}
+.error{
+  text-decoration: wavy red underline;
+}
+.crossed{
+  text-decoration: line-through;
+}
+.nolink{
+  text-decoration: none;
+  color: inherit;
+}
+.link{
+  text-decoration: blue underline;
+  color: blue;
+}
+.inline{
+  display: inline-block
+}
+.floatright{
+  float: right;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.floatleft{
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.important{
+  text-decoration: double underline;
+}
+.kindaimportant{
+  text-decoration: underline;
+}
+.highlightedylw{
+  background-color: yellow;
+}
+.cool{
+  filter: drop-shadow(5px 5px 0px darkcyan);
+  font-family: Verdana;
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+}
+/* Tab Styling */
+.tab-container {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-family: Verdana, sans-serif;
+    margin-right: 5px;
+    border-radius: 4px 4px 0 0;
+}
+
+.tab-link:hover { background-color: #ddd; }
+.tab-link.active { background-color: #fff; border-bottom: 1px solid #fff; margin-bottom: -1px; font-weight: bold; }
+
+.tab-content { display: none; }
+
+/* Calendar Size Adjustments */
+#calendar {
+    max-width: 900px;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+.box {
+  background-color: #ffaa00;
+  border: 1px solid #fbff00;
+  padding: 10px;
+}

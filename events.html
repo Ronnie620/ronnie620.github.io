@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Verdana, Arial, sans-serif;
+            font-size: 13px;
+            display: flex;
+            background-color: #fff;
+        }
+
+        .sidebar {
+            height: 100vh;
+            width: 180px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #f5f5f5;
+            border-right: 1px solid #cccccc;
+            padding: 15px 10px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .sidebar h3 {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .sidebar a {
+            padding: 4px 5px;
+            text-decoration: none;
+            font-size: 11px;
+            color: #0066cc;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            margin-left: 210px;
+            padding: 20px;
+            width: calc(100% - 250px);
+        }
+
+        .breadcrumbs {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .tab-nav {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            display: flex;
+        }
+
+        .tab-link {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            cursor: pointer;
+            background: #f1f1f1;
+            margin-right: 5px;
+            border-radius: 4px 4px 0 0;
+            font-size: 12px;
+        }
+
+        .tab-link.active {
+            background: #fff;
+            border-bottom: 1px solid #fff;
+            margin-bottom: -1px;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        #calendar {
+            background: white;
+            margin-top: 20px;
+            min-height: 600px;
+            border: 1px solid #eee;
+            padding: 10px;
+        }
+
+        .cool {
+            filter: drop-shadow(2px 2px 0px darkcyan);
+            background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 24px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        @media screen and (max-width: 600px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+        .eventlocation{
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="sidebar">
+        <h3>Main</h3>
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="private.html">Private</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="links.html">Links</a>
+        <br>
+        <h3>Other</h3>
+        <a href="contact.html">Contact</a>
+        <a href="websites/index.html">Peoples websites</a>
+        <a href="dishcord.html">Dis cord</a>
+    </nav>
+
+    <main class="main-content">
+        <div class="breadcrumbs">You are here: Home > Events</div>
+
+        <div class="tab-nav">
+            <div class="tab-link active" onclick="openTab(event, 'CalendarView')">Event Calendar</div>
+            <div class="tab-link" onclick="openTab(event, 'Locations')">Locations & Times</div>
+        </div>
+
+        <div id="CalendarView" class="tab-content" style="display: block;">
+            <h1 class="cool">Event Calendar</h1>
+            <p>Click on a date to add an event. Leave the time blank for an <b>All Day</b> event.</p>
+            <div id="calendar"></div>
+        </div>
+        <div id="Locations" class="tab-content" style="display: block;">
+            <h1 class="cool">Locations & Times</h1>
+            <h2>Sunday</h2>
+            <h3>7:00 AM</h3>
+            <h3>8:00 AM</h3>
+            <h3>9:00 AM</h3>
+            <h3>10:00 AM</h3>
+            <h3>11:00 AM</h3>
+            <h3>12:00 PM</h3>
+            <h3>1:00 PM</h3>
+            <h3>2:00 PM</h3>
+            <h3>3:00 PM</h3>
+            <h3>4:00 PM</h3>
+            <h3>5:00 PM</h3>
+            <h3>6:00 PM</h3>
+            <h3>7:00 PM</h3>
+            <h3>8:00 PM</h3>
+            <h3>ALL DAY</h3>
+            <hr>
+            <h2>Monday</h2>
+            <h3>7:00 AM</h3>
+            <h3>8:00 AM</h3>
+            <h3>9:00 AM</h3>
+            <h3>10:00 AM</h3>
+            <h3>11:00 AM</h3>
+            <h3>12:00 PM</h3>
+            <h3>1:00 PM</h3>
+            <h3>2:00 PM</h3>
+            <h3>3:00 PM</h3>
+            <h3>4:00 PM</h3>
+            <h3>5:00 PM</h3>
+            <h3>6:00 PM</h3>
+            <h3>7:00 PM</h3>
+            <h3>8:00 PM</h3>
+            <h3>ALL DAY</h3>
+            <hr>
+            <h2>Tuesday</h2>
+            <h3>7:00 AM</h3>
+            <h3>8:00 AM</h3>
+            <h3>9:00 AM</h3>
+            <h3>10:00 AM</h3>
+            <h3>11:00 AM</h3>
+            <h3>12:00 PM</h3>
+            <h3>1:00 PM</h3>
+            <h3>2:00 PM</h3>
+            <h3>3:00 PM</h3>
+            <h3>4:00 PM</h3>
+            <h3>5:00 PM</h3>
+            <h3>6:00 PM</h3>
+            <h3>7:00 PM</h3>
+            <h3>8:00 PM</h3>
+            <h3>ALL DAY</h3>
+            <hr>
+            <h2>Wednesday</h2>
+            <h3>7:00 AM</h3>
+            <h3>8:00 AM</h3>
+            <h3>9:00 AM</h3>
+            <h3>10:00 AM</h3>
+            <h3>11:00 AM</h3>
+            <h3>12:00 PM</h3>
+            <h3>1:00 PM</h3>
+            <h3>2:00 PM</h3>
+            <h3>3:00 PM</h3>
+            <h3>4:00 PM</h3>
+            <h3>5:00 PM</h3>
+            <h3>6:00 PM</h3>
+            <h3>7:00 PM</h3>
+            <h3>8:00 PM</h3>
+            <h3>ALL DAY</h3>
+            <hr>
+            <h2>Thursday</h2>
+            <h3>7:00 AM</h3>
+            <h3>8:00 AM</h3>
+            <h3>9:00 AM</h3>
+            <h3>10:00 AM</h3>
+            <h3>11:00 AM</h3>
+            <h3>12:00 PM</h3>
+            <h3>1:00 PM</h3>
+            <h3>2:00 PM</h3>
+            <h3>3:00 PM</h3>
+            <h3>4:00 PM</h3>
+            <h3>5:00 PM</h3>
+            <h3>6:00 PM</h3>
+            <h3>7:00 PM</h3>
+            <h3>8:00 PM</h3>
+            <h3>ALL DAY</h3>
+            <hr>
+            <h2>Friday</h2>
+            <h3>7:00 AM</h3>
+            <h3>8:00 AM</h3>
+            <h3>9:00 AM</h3>
+            <h3>10:00 AM</h3>
+            <h3>11:00 AM</h3>
+            <h3>12:00 PM</h3>
+            <h3>1:00 PM</h3>
+            <h3>2:00 PM</h3>
+            <h3>3:00 PM</h3>
+            <h3>4:00 PM</h3>
+            <h3>5:00 PM</h3>
+            <h3>6:00 PM</h3>
+            <h3>7:00 PM</h3>
+            <h3>8:00 PM</h3>
+            <h3>ALL DAY</h3>
+            <hr>
+            <h2>Saturday</h2>
+            <h3>7:00 AM</h3>
+            <h3>8:00 AM</h3>
+            <h3>9:00 AM</h3>
+            <h3>10:00 AM</h3>
+            <h3>11:00 AM</h3>
+            <h3>12:00 PM</h3>
+            <h3>1:00 PM</h3>
+            <h3>2:00 PM</h3>
+            <h3>3:00 PM</h3>
+            <h3>4:00 PM</h3>
+            <h3>5:00 PM</h3>
+            <h3>6:00 PM</h3>
+            <h3>7:00 PM</h3>
+            <h3>8:00 PM</h3>
+            <h3>ALL DAY</h3>
+        </div>
+    </main>
+
+    <script>
+        var calendar;
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+            if (tabName === 'CalendarView' && calendar) { calendar.updateSize(); }
+        }
+
+        function formatTime(timeStr) {
+            if (!timeStr) return null;
+            let time = timeStr.toLowerCase().trim();
+            let isPM = time.includes('pm');
+            let isAM = time.includes('am');
+            time = time.replace('am', '').replace('pm', '').trim();
+            let parts = time.split(':');
+            let hours = parseInt(parts[0]);
+            let minutes = parts[1] ? parseInt(parts[1]) : 0;
+            if (isNaN(hours)) return null;
+            if (isPM && hours < 12) hours += 12;
+            if (isAM && hours === 12) hours = 0;
+            return { h: hours, m: minutes };
+        }
+
+        function addMinutes(dateStr, timeObj, durationMinutes) {
+            let date = new Date(dateStr + 'T00:00:00');
+            date.setHours(timeObj.h);
+            date.setMinutes(timeObj.m + parseInt(durationMinutes || 0));
+            return date.getFullYear() + '-' +
+                String(date.getMonth() + 1).padStart(2, '0') + '-' +
+                String(date.getDate()).padStart(2, '0') + 'T' +
+                String(date.getHours()).padStart(2, '0') + ':' +
+                String(date.getMinutes()).padStart(2, '0') + ':00';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                selectable: true,
+                editable: true,
+                handleWindowResize: true,
+                eventTimeFormat: { hour: 'numeric', minute: '2-digit', meridiem: 'short' },
+                headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek' },
+                events: JSON.parse(localStorage.getItem('wikiEvents') || '[]'),
+
+                select: function (info) {
+                    var title = prompt('Event Name:');
+                    if (title) {
+                        var timeInput = prompt('Start time (e.g. 9:00am, 14:00) OR leave blank for All Day:');
+
+                        let start = info.startStr;
+                        let end = null;
+                        let allDay = true;
+
+                        if (timeInput && timeInput.trim() !== "") {
+                            let timeObj = formatTime(timeInput);
+                            if (timeObj) {
+                                allDay = false;
+                                start = info.startStr + 'T' + String(timeObj.h).padStart(2, '0') + ':' + String(timeObj.m).padStart(2, '0') + ':00';
+                                var durationInput = prompt('Duration in minutes:', '60');
+                                if (durationInput) {
+                                    end = addMinutes(info.startStr, timeObj, durationInput);
+                                }
+                            }
+                        }
+
+                        calendar.addEvent({ title: title, start: start, end: end, allDay: allDay });
+                        save();
+                    }
+                    calendar.unselect();
+                },
+                eventDrop: save,
+                eventResize: save,
+                eventClick: function (info) {
+                    if (confirm("Delete " + info.event.title + "?")) {
+                        info.event.remove();
+                        save();
+                    }
+                }
+            });
+            calendar.render();
+        });
+
+        function save() {
+            const evts = calendar.getEvents().map(e => ({
+                title: e.title,
+                start: e.startStr,
+                end: e.endStr ? e.endStr : null,
+                allDay: e.allDay
+            }));
+            localStorage.setItem('wikiEvents', JSON.stringify(evts));
+        }
+    </script>
+</body>
+
+</html>
